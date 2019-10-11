@@ -35,7 +35,25 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 button("Show Alert") {
+                    textColor = Color.WHITE
+                    setOnClickListener {
+                        alert ("Josss", "Heloo,${name.text}"){
+                            yesButton { snackbar("Oh") }
+                            noButton {  }
+                        }.show()
+                    }
+                }.lparams(width = matchParent){
+                    topMargin = dip(5)
+                }
 
+                button("Next") {
+                    textColor = Color.WHITE
+
+                    setOnClickListener {
+                        startActivity<SecondActivity>("name" to "${name.text}")
+                    }
+                }.lparams(width = matchParent){
+                    topMargin = dip(5)
                 }
             }
         }
